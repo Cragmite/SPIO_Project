@@ -15,6 +15,7 @@ class Failure(models.Model):
 
 
 class Ticket(models.Model):
-    name = models.CharField(max_length=255)
     id = models.AutoField(primary_key=True)
-    category = models.CharField(max_length=255)
+    machine = models.ForeignKey(Machine, on_delete=models.CASCADE, null=True)
+    failure = models.ForeignKey(Failure, on_delete=models.CASCADE, null=True)
+    description = models.CharField(max_length=255)
