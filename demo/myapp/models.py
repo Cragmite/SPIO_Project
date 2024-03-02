@@ -7,6 +7,9 @@ class Machine(models.Model):
     id = models.AutoField(primary_key=True)
     area = models.CharField(max_length=255)
 
+    def __str__(self):
+        return self.name
+
         
 class Failure(models.Model):
     name = models.CharField(max_length=255)
