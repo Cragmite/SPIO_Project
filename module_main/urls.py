@@ -1,12 +1,11 @@
 from django.urls import path
 from . import views
-from .views import MachineListView, selected_machine
 
 urlpatterns = [
-    path("", views.home, name="home")
-]
-
-urlpatterns = [
-    path('machine-list/', MachineListView.as_view(), name='machine_list'),
-    path('selected-machine/', selected_machine, name='selected_machine'),
+    path('', views.getRoutes),
+    path('tickets/', views.getTickets),
+    path('tickets/create/', views.createTicket),
+    path('tickets/<str:pk>/update/', views.updateTicket),
+    path('tickets/<str:pk>/delete/', views.deleteTicket),
+    path('tickets/<str:pk>/', views.getTicket)
 ]
