@@ -1,34 +1,9 @@
-#from django.shortcuts import render, HttpResponse
-#from django.views.generic import FormView
-#from django.urls import reverse_lazy
-#from .forms import MachineSelectionForm, FailureSelectionForm
-#from .models import Machine, Failure
-
-# Create your views here.
-
-#def home(request):
-#    return render(request, "home.html")
-#
-#
-#class MachineListView(FormView):
-#    template_name = 'machine_list.html'
-#    form_class = MachineSelectionForm
-#    success_url = reverse_lazy('selected_machine')
-#
-#    def form_valid(self, form):
-#        selected_machine = form.cleaned_data['machine']
-#        self.request.session['selected_machine'] = selected_machine.pk
-#        return super().form_valid(form)
-#
-#def selected_machine(request):
-#    machine_pk = request.session.get('selected_machine')
-#    selected_machine = Machine.objects.get(pk=machine_pk)
-#    return render(request, 'selected_machine.html', {'selected_machine': selected_machine})
-
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import TicketSerializer
-from .models import Ticket, Machine, Failure
+from .models import Ticket
+from module_machine.models import Machine
+from module_failure.models import Failure
 
 @api_view(['GET'])
 def getRoutes(request):
@@ -37,7 +12,7 @@ def getRoutes(request):
             'Endpoint': '/tickets/',
             'method': 'GET',
             'body': None,
-            'description': 'Returns an arry of tickets'
+            'description': 'Returns an array of tickets'
         },
         {
             'Endpoint': '/tickets/id',

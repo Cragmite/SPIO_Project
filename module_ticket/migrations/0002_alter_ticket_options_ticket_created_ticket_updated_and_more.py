@@ -7,7 +7,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('module_main', '0001_initial'),
+        ('module_ticket', '0001_initial'),
     ]
 
     operations = [

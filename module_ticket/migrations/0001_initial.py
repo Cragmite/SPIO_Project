@@ -33,8 +33,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(primary_key=True, serialize=False)),
                 ('description', models.CharField(max_length=255)),
-                ('failure', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='module_main.failure')),
-                ('machine', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='module_main.machine')),
+                ('failure', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='module_ticket.failure')),
+                ('machine', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='module_ticket.machine')),
             ],
         ),
     ]
